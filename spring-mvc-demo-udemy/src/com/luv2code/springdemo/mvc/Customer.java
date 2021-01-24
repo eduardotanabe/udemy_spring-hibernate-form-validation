@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.luv2code.springdemo.mvc.validation.CourseCode;
+
 public class Customer {
 	
 	private String firstName;
@@ -26,6 +28,9 @@ public class Customer {
 	
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")   // o 5 do regexp refere-se a quantidade de caracteres q aceita
 	private String postalCode;
+	
+	@CourseCode(value = "TOPS", message = "mut start with TOPS")
+	private String courseCode;
 	
 	public String getFirstName() {
 		return firstName;
@@ -57,6 +62,14 @@ public class Customer {
 
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
 	}
 	
 	
